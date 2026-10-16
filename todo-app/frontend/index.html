@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>My Tasks</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✅</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M10 21v-5.5a2 2 0 0 1 4 0V21"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 17v-4M12 17V8M16 17v-6"/></symbol>
+  <symbol id="i-pie" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9h9"/><path d="M9 8.5A5 5 0 1 0 15.5 15"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M3 12h18"/><path d="M9.5 16h5"/><path d="M8 7.5h8"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></symbol>
+  <symbol id="i-filedown" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v7M8.8 12.2L12 15.4l3.2-3.2"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M14.5 5.5l4 4L8 20H4v-4z"/><path d="M12 20h8"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4.5h6V7M6 7l1 13h10l1-13"/><path d="M10 11v6M14 11v6"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="12" cy="19" r="1.6" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.5"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 4h6v3H9zM7 5H5v16h14V5h-2"/><path d="M9 12h6M9 16h4"/></symbol>
+</svg>
+
+<div class="card">
+
+  <!-- ===== Sidebar ===== -->
+  <aside class="sidebar">
+    <div class="logo" title="Task Manager">TM</div>
+    <nav class="side-nav" aria-label="Task views">
+      <button class="side-btn active" data-tab="ALL" title="All tasks" aria-label="All tasks"><svg class="i"><use href="#i-home"/></svg></button>
+      <button class="side-btn" data-tab="PENDING" title="Pending tasks" aria-label="Pending tasks"><svg class="i"><use href="#i-chart"/></svg></button>
+      <button class="side-btn" data-tab="COMPLETED" title="Completed tasks" aria-label="Completed tasks"><svg class="i"><use href="#i-pie"/></svg></button>
+      <button class="side-btn" data-tab="OVERDUE" title="Overdue tasks" aria-label="Overdue tasks"><svg class="i"><use href="#i-box"/></svg></button>
+      <button class="side-btn" id="themeBtn" title="Dark mode" aria-label="Toggle dark mode"><svg class="i"><use href="#i-moon"/></svg></button>
+      <button class="side-btn" id="settingsBtn" title="Settings" aria-label="Settings"><svg class="i"><use href="#i-gear"/></svg></button>
+    </nav>
+  </aside>
+
+  <!-- ===== Main ===== -->
+  <main class="content">
+
+    <header class="topbar">
+      <div class="search-box" id="searchBox">
+        <input id="search" type="search" placeholder="Search tasks..." aria-label="Search tasks" autocomplete="off">
+        <button class="top-icon" id="searchBtn" aria-label="Search"><svg class="i"><use href="#i-search"/></svg></button>
+      </div>
+      <button class="top-icon" id="bellBtn" aria-label="Overdue tasks" title="Overdue tasks">
+        <svg class="i"><use href="#i-bell"/></svg>
+        <span class="bell-count hidden" id="bellCount">0</span>
+      </button>
+      <div class="avatar" title="Profile">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="20" fill="#e0eeea"/>
+          <path d="M10 33c1-5 5-7 10-7s9 2 10 7a20 20 0 0 1-20 0z" fill="#4f7f86"/>
+          <circle cx="20" cy="19.5" r="9" fill="#f2b48c"/>
+          <path d="M10.5 18c-.5-7 4-10.5 9.5-10.5S30 11 29.5 18c-1.6-3.2-4-4.4-9.5-4.4S12.100 14.800 10.500 18z" fill="#4a2616"/>
+          <path d="M11.500 21.500c0 6 3.500 9.500 8.500 9.500s8.500-3.500 8.500-9.500c-1.700 3-4.500 4.200-8.500 4.200s-6.800-1.200-8.500-4.200z" fill="#5c3220"/>
+          <circle cx="16.300" cy="19.500" r="1.100" fill="#1d1d2b"/><circle cx="23.700" cy="19.500" r="1.100" fill="#1d1d2b"/>
+          <path d="M17.500 24.200c1.500 1 3.500 1 5 0" stroke="#f2b48c" stroke-width="1.400" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </header>
+
+    <h1>My Tasks</h1>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="ALL" role="tab">All Tasks</button>
+      <button class="tab" data-tab="PENDING" role="tab">Pending Tasks</button>
+      <button class="tab" data-tab="COMPLETED" role="tab">Completed Tasks</button>
+    </div>
+
+    <div class="toolbar">
+      <div class="filters">
+        <div class="date-field" id="dateField">
+          <button type="button" class="box" id="dateBtn" aria-label="Choose due date">
+            <svg class="i"><use href="#i-calendar"/></svg>
+            <span id="dateText" class="placeholder">Select due date</span>
+          </button>
+          <button type="button" class="date-clear hidden" id="dateClear" aria-label="Clear date"><svg class="i"><use href="#i-x"/></svg></button>
+          <input type="date" id="fDate" tabindex="-1" aria-hidden="true">
+        </div>
+
+        <label class="box select-box">
+          <select id="fPriority" aria-label="Choose priority">
+            <option value="">Choose Priority</option>
+            <option value="HIGH">High</option>
+            <option value="MEDIUM">Medium</option>
+            <option value="LOW">Low</option>
+          </select>
+          <svg class="i chev"><use href="#i-down"/></svg>
+        </label>
+
+        <button class="btn btn-accent" id="filterBtn">Filter</button>
+      </div>
+
+      <button class="btn btn-primary" id="addBtn"><svg class="i"><use href="#i-plus"/></svg> Create New Task</button>
+    </div>
+
+    <section class="table-card">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th class="c-title">Title</th>
+              <th class="c-priority">Priority</th>
+              <th class="c-status">Status</th>
+              <th class="c-by">Created by</th>
+              <th class="c-assigned">Date Assigned</th>
+              <th class="c-due">Due Date</th>
+              <th class="c-actions"></th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="pager">
+      <span>Rows per page:</span>
+      <label class="box select-box rows-box">
+        <select id="rowsPer" aria-label="Rows per page">
+          <option>5</option><option selected>10</option><option>25</option><option>50</option>
+        </select>
+        <svg class="i chev"><use href="#i-down"/></svg>
+      </label>
+      <span id="range" class="range">0-0 of 0</span>
+      <button class="pg" id="prev" aria-label="Previous page"><svg class="i"><use href="#i-left"/></svg></button>
+      <button class="pg" id="next" aria-label="Next page"><svg class="i"><use href="#i-right"/></svg></button>
+    </footer>
+  </main>
+</div>
+
+<div class="row-menu hidden" id="rowMenu" role="menu"></div>
+
+<!-- Create / Edit -->
+<dialog id="taskDialog">
+  <form id="taskForm" novalidate>
+    <h2 id="taskDialogTitle">Create New Task</h2>
+
+    <label class="form-row">Title <span class="req">*</span>
+      <input id="title" maxlength="150" placeholder="e.g. Finish assignment">
+      <small class="error" id="titleError"></small>
+    </label>
+
+    <label class="form-row">Description
+      <textarea id="description" rows="3" maxlength="1000" placeholder="Add some details (optional)"></textarea>
+    </label>
+
+    <div class="form-grid">
+      <label class="form-row">Due date
+        <input type="date" id="deadline">
+      </label>
+      <label class="form-row">Priority
+        <select id="priority">
+          <option value="LOW">Low</option>
+          <option value="MEDIUM" selected>Medium</option>
+          <option value="HIGH">High</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="form-grid">
+      <label class="form-row">Status
+        <select id="status">
+          <option value="PENDING">Pending</option>
+          <option value="COMPLETED">Completed</option>
+        </select>
+      </label>
+      <label class="form-row">Created by
+        <input id="createdBy" maxlength="100" placeholder="Me">
+      </label>
+    </div>
+
+    <div class="dialog-actions">
+      <button type="button" class="btn btn-ghost" id="cancelBtn">Cancel</button>
+      <button type="submit" class="btn btn-primary" id="saveBtn">Save Task</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- Details -->
+<dialog id="detailsDialog">
+  <div class="details">
+    <h2 id="dTitle"></h2>
+    <p id="dDescription" class="muted"></p>
+    <dl>
+      <dt>Priority</dt><dd id="dPriority"></dd>
+      <dt>Status</dt><dd id="dStatus"></dd>
+      <dt>Created by</dt><dd id="dBy"></dd>
+      <dt>Date assigned</dt><dd id="dCreated"></dd>
+      <dt>Due date</dt><dd id="dDue"></dd>
+    </dl>
+    <div class="dialog-actions"><button class="btn btn-ghost" id="dClose">Close</button></div>
+  </div>
+</dialog>
+
+<!-- Confirm delete -->
+<dialog id="confirmDialog">
+  <div class="details">
+    <h2>Delete task?</h2>
+    <p class="muted" id="confirmText"></p>
+    <div class="dialog-actions">
+      <button class="btn btn-ghost" id="confirmNo">Cancel</button>
+      <button class="btn btn-danger" id="confirmYes">Delete</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- Settings -->
+<dialog id="settingsDialog">
+  <div class="details">
+    <h2>Settings</h2>
+
+    <div class="form-row">Color theme
+      <div class="swatches" id="swatches">
+        <span class="group-label">Light themes</span>
+        <button type="button" class="swatch" data-theme="teal"><i style="--c1:#2f5d62;--c2:#cfe8e0"></i>Calm Teal</button>
+        <button type="button" class="swatch" data-theme="ocean"><i style="--c1:#2b5c9e;--c2:#dbe8f8"></i>Ocean Blue</button>
+        <button type="button" class="swatch" data-theme="sage"><i style="--c1:#476b52;--c2:#dcebdd"></i>Sage Green</button>
+        <button type="button" class="swatch" data-theme="graphite"><i style="--c1:#2e3440;--c2:#e7e9ee"></i>Graphite</button>
+        <button type="button" class="swatch" data-theme="indigo"><i style="--c1:#4b4a9a;--c2:#e1e0f7"></i>Soft Indigo</button>
+        <button type="button" class="swatch" data-theme="clay"><i style="--c1:#9b5f48;--c2:#f3e4da"></i>Warm Clay</button>
+        <span class="group-label">Dark themes</span>
+        <button type="button" class="swatch" data-theme="midnight"><i style="--c1:#0d1530;--c2:#5b7cf5"></i>Midnight Navy</button>
+        <button type="button" class="swatch" data-theme="forest"><i style="--c1:#0a1310;--c2:#2f9e74"></i>Deep Forest</button>
+        <button type="button" class="swatch" data-theme="plum"><i style="--c1:#0f0a1c;--c2:#7c5ce0"></i>Plum Night</button>
+        <button type="button" class="swatch" data-theme="obsidian"><i style="--c1:#0b0a09;--c2:#d8982f"></i>Obsidian Amber</button>
+        <button type="button" class="swatch" data-theme="deepsea"><i style="--c1:#061217;--c2:#1f93a8"></i>Deep Sea</button>
+        <button type="button" class="swatch" data-theme="rose"><i style="--c1:#100e12;--c2:#c24a6d"></i>Dusk Rose</button>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <label class="form-row">Backend API URL
+      <input id="apiUrl" placeholder="http://localhost:8080/api/tasks">
+    </label>
+    <p class="muted small">Saved in this browser only. Change it after you deploy the backend.</p>
+    <div class="dialog-actions">
+      <button class="btn btn-ghost" id="settingsReset">Use default URL</button>
+      <button class="btn btn-primary" id="settingsSave">Save</button>
+    </div>
+  </div>
+</dialog>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

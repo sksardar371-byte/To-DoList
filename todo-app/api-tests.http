@@ -1,0 +1,44 @@
+### Use VS Code "REST Client" extension (or import into Postman)
+@base = http://localhost:8080/api/tasks
+
+### Add task
+POST {{base}}
+Content-Type: application/json
+
+{ "title": "Finish assignment", "description": "Spring Boot project", "deadline": "2026-10-30", "priority": "HIGH" }
+
+### Empty title -> 400 error
+POST {{base}}
+Content-Type: application/json
+
+{ "title": "" }
+
+### View all
+GET {{base}}
+
+### Pending only
+GET {{base}}?status=PENDING
+
+### Completed only
+GET {{base}}?status=COMPLETED
+
+### Search
+GET {{base}}?search=assign
+
+### Get one
+GET {{base}}/1
+
+### Update
+PUT {{base}}/1
+Content-Type: application/json
+
+{ "title": "Finish assignment (edited)", "description": "Add tests", "deadline": "2026-11-02", "priority": "MEDIUM", "status": "PENDING" }
+
+### Mark completed
+PATCH {{base}}/1/status
+Content-Type: application/json
+
+{ "status": "COMPLETED" }
+
+### Delete
+DELETE {{base}}/1
