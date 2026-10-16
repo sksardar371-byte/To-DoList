@@ -1,4 +1,10 @@
-
+class ApiError extends Error {
+  constructor(message, status) {
+    super(message);
+    this.name = "ApiError";
+    this.status = status;
+  }
+}
 const TaskApi = (() => {
   async function request(path = "", method = "GET", body) {
     let response;
