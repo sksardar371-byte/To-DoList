@@ -419,7 +419,7 @@
   };
 
   darkToggle = store.get("theme") === "dark";
-  applyTheme(store.get("colorTheme") || "teal");
+applyTheme(store.get("colorTheme") || "midnight");
 
   loadTasks();
 })();
